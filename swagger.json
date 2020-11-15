@@ -1,0 +1,59 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title":"API Title",
+		"version":"1.0"
+	},
+
+	"definitions": {
+		"Social": {
+			"type":"object",
+			"properties": {
+				"key": {
+					"type": "string",
+					"title": "Ключ"
+				},
+				"link": {
+					"type": "string"
+				},
+				"nik": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string",
+					"pattern": "^(social|messenger|email|work)$"
+				}
+			}
+		}
+	},
+
+	"paths": {
+		"/social.getAll": {
+			"get": {
+				"description": "",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"properties": {
+								"response" : {
+									"type": "string"
+								},
+								"items": {
+									"type":"array",
+									"items": {
+										"$ref": "#/definitions/Social"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
